@@ -1,4 +1,4 @@
-4th semester project. 
+Minor Semester project. 
 You need MySQL installed in your device to run this. 
 Get it from https://www.apachefriends.org/download.html
 

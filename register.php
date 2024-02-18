@@ -1,4 +1,4 @@
-        <?php  
+<?php  
         // include config file
            include 'config.php';
         // check sumbit is set or not 

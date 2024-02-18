@@ -2,9 +2,14 @@
   //include hedare file
   include  'admin_header.php';
 ?>
+<style>
+  #update_form{
+    height: fit-content;
+  }
+</style>
  <!--added products-->
    <section id="products">
-            <h2>Added Products</h2>
+            <h2>Current Products</h2>
             <div class="products">
                   <?php
                     //select added produvts detail like image name price
@@ -18,10 +23,11 @@
                             <img class="image"src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
                              <h4><?php echo $fetch_products['name']; ?></h4>
                              <p>Rs. <?php echo $fetch_products['price'];?>/-</p>
+                             <p>Type: <?php echo $fetch_products['type'];?></p>
                              <!--update product button--> 
-                             <a href="admin_products.php?update=<?php echo $fetch_products['id'];?>" class="update-btn background"><img src="./assets/icons/updated.png" alt=""> update</a>
+                             <a href="admin_products.php?update=<?php echo $fetch_products['id'];?>" class="update-btn background"><img src="./assets/icons/updated.png" alt=""> Update</a>
                              <!--delete product button-->
-                             <a href="admin_products.php?delete=<?php echo $fetch_products['id'];?>" calss="canceld-btn background" onclick="return confirm(' Are you delete this product ?');"><img src="./assets/icons/delete.png" alt=""> delete</a>
+                             <a href="admin_products.php?delete=<?php echo $fetch_products['id'];?>" calss="canceld-btn background" onclick="return confirm(' Are you delete this product ?');"><img src="./assets/icons/delete.png" alt=""> Delete</a>
                             </div>
                             <?php
                              }
@@ -51,8 +57,9 @@
                           $update_p_id=$_POST['update_p_id'];
                           $update_name=$_POST['update_name'];
                           $update_price=$_POST['update_price'];
+                          $update_type=$_POST['update_type'];
                           // update the product detai in product table
-                          mysqli_query($conn,"UPDATE `products` SET name ='$update_name', price='$update_price' WHERE id='$update_p_id'") or die('query failed!');
+                          mysqli_query($conn,"UPDATE `products` SET name ='$update_name', price='$update_price', type='$update_type' WHERE id='$update_p_id'") or die('query failed!');
                           $update_image=$_FILES['update_image']['name'];
                           $update_image_tmp_name=$_FILES['update_image']['tmp_name'];
                           $update_image_size=$_FILES['update_image']['size'];
@@ -86,7 +93,7 @@
                             while($fetcth_update = mysqli_fetch_assoc($update_query)){   
                 ?>
                 <div class="update-container" id="admin_products">
-                 <form action="" method="post" enctype="multipart/form-data">
+                 <form action="" method="post" enctype="multipart/form-data" id="update_form">
                     <h2>Update Product</h2>
                         
                     <?php
@@ -111,6 +118,10 @@
                    <div class="form">
                        <span><img src="./assets/icons/get-money.png" alt=""></span> <input type="number" name="update_price"
                        placeholder="Enter product price" class="box price" required min="1" value="<?php echo $fetcth_update['price']; ?>" >
+                   </div>
+                   <div class="form">
+                        <span><img src="./assets/icons/type.png" alt="" height="16" width="16"></span><input type="text" name="update_type"placeholder="Enter Type"
+                        class="box" required value ="<?php echo $fetcth_update['type'];?>">
                    </div>
                    <div class="form">
                     <span><img src="./assets/icons/image-files.png" alt=""></span> <input type="file" name="update_image"

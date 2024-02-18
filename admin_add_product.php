@@ -1,5 +1,5 @@
-   <?php
-       //include hedare file
+<?php
+       //include header file
          include 'admin_header.php';
               
 
@@ -9,6 +9,7 @@
             // if isset true then assining input values
             $name = mysqli_real_escape_string($conn,$_POST['name']);
             $price=$_POST['price'];
+            $type=$_POST['type'];
             $image=$_FILES['image']['name'];
             $image_size=$_FILES['image']['size'];
             $image_tmp_name=$_FILES['image']['tmp_name'];
@@ -17,20 +18,20 @@
             $select_product_name= mysqli_query($conn,"SELECT name FROM `products` WHERE name='$name'") or die('query failed');
          // check the produvt already exist or not
             if(mysqli_num_rows($select_product_name)>0){
-                $message[]='product name already exist';
+                $message[]='Product name already exists';
 
             }
             // not exist then insertt the data into products table
             else{
               //execute query ti insert the product details
-              $add_product_query=mysqli_query($conn,"INSERT INTO `products`(name,price,image) VALUES('$name',
-              '$price','$image')") or die('query failed!');
+              $add_product_query=mysqli_query($conn,"INSERT INTO `products`(name,price,image,type) VALUES('$name',
+              '$price','$image','$type')") or die('query failed!');
            
               if($add_product_query){
                 // check size of image
                 if($image_size>2000000)
                 {
-                  $message[]='image size too large';
+                  $message[]='Image size too large';
                 }
                 else{
                   // move the uploaded imag ein uploaded_img folder
@@ -40,7 +41,7 @@
                 }
               }
               else{
-                $message[]='product could not be added';
+                $message[]='Product could not be added';
               }
             }
 
@@ -88,11 +89,15 @@
           placeholder="Enter product price" class="box" required min="1">
        </div>
        <div class="form">
+          <span><img src="./assets/icons/type.png" height="16" width="16" alt=""></span> <input type="text" name="type"
+           placeholder="Enter product type" class="box" required>
+       </div>
+       <div class="form">
           <span><img src="./assets/icons/image-files.png" alt=""></span> <input type="file" name="image"
           accept="image/jpeg, image/png, image/jpg" class="box" required>
        </div>
        <div class="form">
-         <input type="submit" name="add_product" value="add now" class="box btn">
+         <input type="submit" name="add_product" value="Add" class="box btn">
        </div>
 
 

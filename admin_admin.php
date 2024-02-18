@@ -44,7 +44,7 @@
                 <td><?php echo $fetch_admin['email'];?></td>
                 <td><?php echo $fetch_admin['password'];?></td>
                 <!--delete button cliceked selected uadmin will be deleted-->
-                <td> <a href="admin_admin.php?delete=<?php echo $fetch_admin['id'];?>" onclick="return confirm('Are sure delete the order?')" class="delete">delete</a></td>
+                <td> <a href="admin_admin.php?delete=<?php echo $fetch_admin['id'];?>" onclick="return confirm('Are you sure?')" class="delete">Delete</a></td>
              </tr>
 
         <?php

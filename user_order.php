@@ -11,15 +11,16 @@
        mysqli_query($conn,"DELETE FROM `orders` WHERE id = '$order_id'") or die('query failed!');
        //redirect user_order.php page
        echo '<script>window.location.href="user_order.php"</script>';
+       //get date; 
       }
   ?>  
 <!---order section-->
 <section class="order">
-    <h2>Orders Palced</h2>
+    <h2>Orders Placed</h2>
   <div class="order-container">
     <table>
              <tr>
-                <th>Product Name Quantity And Price</th>
+                <th>Product Name Quantity</th>
                 <th>Total Price</th>
                 <th>Payment Method</th>
                 <th>Order Status</th>
@@ -44,8 +45,13 @@
                 <td><?php echo $fetch_orders['total_price'];?></td>
                 <td><?php echo $fetch_orders['method'];?></td>
                 <td><?php echo $fetch_orders['order_status'] ?></td>
-                <td><?php echo $fetch_orders['date'];?></td>
-                <td><a href="user_order.php?delete=<?php echo $fetch_orders['id'];?> " onclick="return confirm('Are sure to cancel the order')" class="cancel <?php echo (strcmp($order_status,'pending'))? 'disabled':'';?>">cancel</a></td>  
+                <!-- php echo $fetch_orders['date']; -->
+                <td><?php 
+                       $current_date = date('Y-m-d');
+                       echo $current_date
+                     ?>
+                  </td>
+                <td><a href="user_order.php?delete=<?php echo $fetch_orders['id'];?> " onclick="return confirm('Are sure to cancel the order')" class="cancel <?php echo (strcmp($order_status,'pending'))? 'disabled':'';?>">Cancel</a></td>  
              </tr>
 
         <?php

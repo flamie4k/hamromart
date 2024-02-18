@@ -18,7 +18,7 @@
   <div class="order-container users">
     <table>
              <tr>
-                <th>User Id</th>
+                <th>User-Id</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
@@ -37,7 +37,7 @@
                 <td><?php echo $fetch_user['name'];?></td>
                 <td><?php echo $fetch_user['email'];?></td>
                 <td><?php echo $fetch_user['password'];?></td>
-                <td> <a href="admin_admin.php?delete=<?php echo $fetch_user['id'];?>" onclick="return confirm('Are sure delete the order?')" class="delete">delete</a></td>
+                <td> <a href="admin_admin.php?delete=<?php echo $fetch_user['id'];?>" onclick="return confirm('Are you sure?')" class="delete">Delete</a></td>
              </tr>
 
         <?php

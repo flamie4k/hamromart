@@ -5,23 +5,20 @@
                         <h4>About Us</h4>
                         <br><br>
                         <p style="width: 90%;">
-                          Lunched in 2023 Hamro Mart is Nepal's premier online shopping market place.
+                        Hmaromart - Admin
                          <br>
                          <br>
-                          Hmaro Mart Is focused on providing an excellent customer experience 
-                          ease-of-purchase,
-                         comprehensive
-                          customers care and hasel-free shopping and returns experience.
+                         Hamromart aspires to provide a neat shopping experience to all of our customers.
                         </p>
                         <br>
-                        <img src="./assets/icons/location.png" alt="">Mahendranagar,Kanchanpur-Nepal</p>
+                        <img src="./assets/icons/location.png" alt="">Patan, Lalitpur - Nepal </p>
                   </div>
                   <div class="contact-us">
                       <h4>Contact Us</h4>
                       <br><br>
-                      <p><img  src="./assets/icons/phone-call.png" alt="">+977-9809498493</p>
+                      <p><img  src="./assets/icons/phone-call.png" alt="">+977-9822834472</p>
                       <br>
-                      <p><img  src="./assets/icons/email.png" alt="">hamro@gmail.com</p>
+                      <p><img  src="./assets/icons/email.png" alt="">hamromart@gmail.com</p>
                       <br>
                       <p><img  src="./assets/icons/fb.png" alt="">Hamromart</p>
                   </div>

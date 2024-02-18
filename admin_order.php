@@ -1,4 +1,4 @@
-   <?php 
+<?php 
       
       //include admin header file
       include 'admin_header.php';
@@ -12,7 +12,7 @@
             $update_order_status=$_POST['order_update'];
             //execute query for selected order
             mysqli_query($conn,"UPDATE `orders` SET order_status='$update_order_status', payment_status='$update_payment_status' WHERE id='$order_id'") or die('query failed');
-            $message[]='Oredr payment status and order status is updated';
+            $message[]='Order payment status and order status is updated';
           }
         // get order id 
           if(isset($_GET['delete'])){
@@ -87,16 +87,16 @@
                 
                 <td><span><img src="./assets/icons/get-money.png" alt=""></span>
                     <select name="update_payment" id=""]>
-                        <option value="pending" selected>pending</option>
-                        <option value="paid">paid</option>
+                        <option value="pending" selected>Pending</option>
+                        <option value="paid">Paid</option>
                     </select></td>
                     <td>
                         <span><img src="./assets/icons/delivery.png" alt=""></span>
                         <select name="order_update" id=""]>
-                        <option value="pending" selected>pending</option>
-                        <option value="on the way ">on the way</option>
-                        <option value="delivered">delivered</option>
-                        <option value="cancelled">cancelled</option>
+                        <option value="pending" selected>Pending</option>
+                        <option value="on the way ">On the way</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
                     </select>
                   </td>
                   <td>
@@ -112,7 +112,7 @@
                   </td>
                     <td>  
                      <!--delete button and get the order-->
-                    <a href="admin_order.php?delete=<?php echo $fetch_orders['id'];?>" onclick="return confirm('Are sure delete the order?')" class="delete">delete</a>
+                    <a href="admin_order.php?delete=<?php echo $fetch_orders['id'];?>" onclick="return confirm('Are sure delete the order?')" class="delete">Delete</a>
                    </td>
                 </form>
                 

@@ -2,6 +2,13 @@
      //include header file
       include 'admin_header.php';
 ?>
+<style>
+.absolute_bottom_admin_footer{
+        position:fixed;
+        bottom:0;
+        width:100%;
+    }
+</style>
 
    
     <div class="add-admin">

@@ -1,4 +1,4 @@
-<?php
+   <?php
        //include header file
          include 'admin_header.php';
               
@@ -65,6 +65,13 @@
         margin-top: 12px;
       }
     </style>
+    <style>
+    .absolute_bottom_admin_footer{
+        position:fixed;
+        bottom:0;
+        width:100%;
+    }
+</style>
   </head>
 
   <body>

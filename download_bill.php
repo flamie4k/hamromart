@@ -1,0 +1,58 @@
+<?php
+// Include database connection and header file
+include 'config.php';
+
+// Execute SQL query to fetch bill details
+$bill_query = mysqli_query($conn, "SELECT * FROM bill");
+$billDirectory = "bill";
+if (!is_dir($billDirectory)) {
+    mkdir($billDirectory);
+}
+
+// Check if the query was successful
+if ($bill_query) {
+    // Create a new text file
+    $file = fopen("$billDirectory/bill.txt", "w");
+
+    // Check if the file was successfully created
+    if ($file) {
+        // Write bill details to the file
+        fwrite($file, "Bill\n\n");
+        
+        // Initialize grand total
+        $grandTotal = 0;
+        
+        // Iterate through each bill item
+        while ($row = mysqli_fetch_assoc($bill_query)) {
+            // Calculate total for each item
+            $total = $row['price'] * $row['quantity'];
+            
+            // Add the total to the grand total
+            $grandTotal += $total;
+
+            // Write item details to the file
+            fwrite($file, "Name: " . $row['name'] . "\n");
+            fwrite($file, "Quantity: " . $row['quantity'] . "\n");
+            fwrite($file, "Price: " . $row['price'] . "\n");
+            fwrite($file, "Total: " . $total . "\n\n");
+        }
+
+        // Write the grand total to the file
+        fwrite($file, "Grand Total: " . $grandTotal . "\n");
+
+        // Close the file
+        fclose($file);
+
+        // Inform the user that the file has been created
+        echo "Bill details have been saved to bill.txt";
+    } else {
+        // Handle the case where the file creation failed
+        echo "Error: Unable to create file";
+    }
+} else {
+    // Handle the case where the bill query failed
+    echo "Error: " . mysqli_error($conn);
+}
+
+// Include footer file
+?>

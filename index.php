@@ -3,53 +3,6 @@
  include 'user_header.php';
 ?>
 <?php 
-/*
-// Establish connection to MySQL database using mysqli instead of mysql (deprecated)
-$connect = mysqli_connect("localhost", "root", "", "hamro_mart");
-
-// Check if connection is successful
-if (!$connect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$output = '';
-
-// Check if the "query" parameter is set in the POST request
-if(isset($_POST["query"])) {
-    // Sanitize the input to prevent SQL injection
-    $searchQuery = mysqli_real_escape_string($connect, $_POST["query"]);
-
-    // Construct the SQL query with a placeholder
-    $query = "SELECT * FROM products WHERE name LIKE '%$searchQuery%'";
-
-    // Execute the SQL query
-    $result = mysqli_query($connect, $query);
-
-    // Start building the output HTML
-    $output .= '<ul class="list-unstyled">';
-
-    // Check if there are any rows returned by the query
-    if(mysqli_num_rows($result) > 0) {
-        // Fetch rows and add them to the output HTML
-        while($row = mysqli_fetch_array($result)) {
-            $output .= '<li>' . $row["name"] . '</li>';
-        }
-    } else {
-        // If no rows are found, display "Item not found"
-        $output .= '<li>Item not found</li>';
-    }
-
-    // Close the unordered list
-    $output .= '</ul>';
-
-    // Output the final HTML
-    echo $output;
-}
-// Close the database connection
-mysqli_close($connect);
-*/
-?>
- <?php 
      //if clicked add to cart button  and assingning input value
      if(isset($_POST['addcart'])){
       $product_name=$_POST['product_name'];

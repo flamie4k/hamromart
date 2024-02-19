@@ -1,3 +1,6 @@
+body{
+    background-image: url(/assets/dottedbackground.png);
+}
 *{
     margin: 0;
     padding: 0;
@@ -23,6 +26,8 @@
     justify-content: center;
     align-items: center;
     margin: 0 2px;
+    padding:5px;
+    padding-left: 10px;
 }
 
 .box{

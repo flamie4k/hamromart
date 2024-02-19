@@ -1,4 +1,4 @@
-
+<div class="absolute_bottom_admin_footer">
 <section id="footer">
             <footer>
                   <div class="about-us">
@@ -37,6 +37,7 @@
       </section>
       <script src="./js/app.js"></script>
       <script src="./js/close.js"></script>
+</div>
 </body>
 
 </html>

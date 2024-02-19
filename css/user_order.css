@@ -1,4 +1,7 @@
 
+.order{
+    padding-top:50px;
+}
 .order h2{
     text-align: center;
     color: purple;
@@ -8,7 +11,7 @@
     justify-content: center;
 }
 .order-container table th,td{
-    padding: 20px;
+    padding: 35px;
     border-bottom: 1px solid black;
 }
 .order-btn{

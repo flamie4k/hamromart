@@ -1,4 +1,6 @@
 <!--footer section-->
+<!-- Added CSS to push footer down -->
+<div class="absolute_bottom_user_footer">
 <section id="footer">
     <footer>
         <div class="about-us">
@@ -30,6 +32,7 @@
         </div>
     </footer>
 </section>
+</div>
 <script src="./js/app.js"></script>
 <script src="./js/close.js"></script>
 <script src="./js/user_cart.js"></script>

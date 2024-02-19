@@ -1,4 +1,4 @@
 <?php
-//connect to data base hamro_mart
+//Initiating connection to database
     $conn=mysqli_connect('localhost','root','','hamro_mart') or die('connection failed');
 ?>

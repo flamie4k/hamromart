@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2024 at 01:29 PM
+-- Generation Time: Feb 19, 2024 at 06:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `hamro_mart`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bill`
+--
+
+CREATE TABLE `bill` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `quantity` int(100) NOT NULL,
+  `price` int(100) NOT NULL,
+  `total` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -56,13 +70,6 @@ CREATE TABLE `orders` (
   `date` date NOT NULL,
   `number` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `name`, `email`, `address`, `total_products`, `total_price`, `method`, `order_status`, `payment_status`, `date`, `number`) VALUES
-(9, 3, 'Prashav Rimal ', 'prashav@gmail.com', 'Kathmandu, Lalitpur', ',Rice cooker (2) ', 4000, 'cash on delivery', 'delivered', 'paid', '0000-00-00', '9822834472');
 
 -- --------------------------------------------------------
 
@@ -125,6 +132,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 --
 
 --
+-- Indexes for table `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -153,16 +166,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bill`
+--
+ALTER TABLE `bill`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `products`

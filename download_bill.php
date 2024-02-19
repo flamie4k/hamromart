@@ -1,5 +1,6 @@
 <?php
 // Include database connection and header file
+//Stores the bill in a local file called bill.txt 
 include 'config.php';
 
 // Execute SQL query to fetch bill details

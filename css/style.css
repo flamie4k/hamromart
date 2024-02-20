@@ -221,6 +221,13 @@ footer{
     .links ul li a img{
         width: 20px;
     }
+#footer{
+    width:100%;
+}
+.Searchbox{
+    align-self:center;
+}
+
 }
 
 @media (max-width:690px) {

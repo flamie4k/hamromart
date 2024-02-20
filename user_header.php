@@ -47,6 +47,21 @@ if(isset($_POST["query"])) {
 
     // Output the final HTML
     echo $output;
+    
+    // Store the query in a file
+    if (!empty($searchQuery)) {
+        // File path to store the query
+        $file = 'js_query.txt';
+
+        // Open the file in write mode
+        $fp = fopen($file, 'w');
+
+        // Write the query to the file
+        fwrite($fp, $searchQuery);
+
+        // Close the file
+        fclose($fp);
+    }
     exit; // Stop further execution
 }
 ?>
@@ -65,7 +80,7 @@ if(isset($_POST["query"])) {
     <link rel="stylesheet" href="./css/user_pay.css">
     <link rel="icon" type="image/x-icon" sizes="180x180" href="./assets/icons/logo.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
+    <!-- <script>
         // Function to handle search
         $(document).ready(function () {
             $("#search").keyup(function () {
@@ -87,22 +102,8 @@ if(isset($_POST["query"])) {
                     $('#search-results').hide(); // Hide the dropdown if input is empty
                 }
             });
-
-            // Hide dropdown when clicking outside the input and dropdown
-            $(document).click(function (event) {
-                if (!$(event.target).closest('#search-results').length && !$(event.target).is('#search')) {
-                    $('#search-results').hide();
-                }
-            });
-
-            // Set selected item in input when clicking on dropdown item
-            $(document).on('click', '#search-results ul li', function () {
-                var value = $(this).text();
-                $('#search').val(value);
-                $('#search-results').hide();
-            });
         });
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -120,10 +121,11 @@ if(isset($_POST["query"])) {
 
                 </ul>
             </div>
-            <div class="Searchbox">
+            <!-- <div class="Searchbox">
                 <input type="text" id="search" placeholder="Enter product name...">
-                <div id="search-results"></div> <!-- Dropdown container -->
-            </div>
+                <input type="button" id="search_box" value="Search">
+                <div id="search-results"></div> Dropdown container
+            </div> -->
             <div class="profile">
                 <?php 
                     $user_id=$_SESSION['user_id'];

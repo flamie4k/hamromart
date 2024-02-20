@@ -79,7 +79,10 @@
                 <td><?php echo $fetch_orders['method'];?></td>
                 <td><?php echo $fetch_orders['payment_status'];?></td>
                 <td><?php echo $fetch_orders['order_status'];?></td>
-                <td><?php echo $fetch_orders['date'];?></td>
+                <td><?php echo /*$fetch_orders['date'];*/
+                      $today_date = date("Y-m-d");
+                      echo $today_date;
+                      ?></td>
                
                 
                 <form action="" method="post">

@@ -23,6 +23,8 @@
         echo '<script>window.location.href="user_cart.php"</script>';
     }
 ?>
+
+
           
 <?php
     // print message

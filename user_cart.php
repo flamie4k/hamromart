@@ -23,14 +23,6 @@
         echo '<script>window.location.href="user_cart.php"</script>';
     }
 ?>
-
-<style>
-    .absolute_bottom_user_footer{
-        position:fixed;
-        bottom:0;
-        width:100%;
-    }
-</style>
           
 <?php
     // print message

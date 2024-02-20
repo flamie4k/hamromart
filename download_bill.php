@@ -3,6 +3,7 @@
 include 'config.php';
 
 // Execute SQL query to fetch bill details
+date_default_timezone_set('Asia/Kathmandu');
 $bill_query = mysqli_query($conn, "SELECT * FROM bill");
 $billDirectory = "bill";
 if (!is_dir($billDirectory)) {
@@ -20,7 +21,7 @@ if ($bill_query) {
     // Check if the file was successfully created
     if ($file) {
         // Write bill details to the file
-        fwrite($file, "Bill\n\n");
+        fwrite($file, "Bill_$currentDateTime\n\n");
         
         // Initialize grand total
         $grandTotal = 0;

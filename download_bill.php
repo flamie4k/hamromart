@@ -1,6 +1,5 @@
 <?php
 // Include database connection and header file
-//Stores the bill in a local file called bill.txt 
 include 'config.php';
 
 // Execute SQL query to fetch bill details
@@ -12,8 +11,11 @@ if (!is_dir($billDirectory)) {
 
 // Check if the query was successful
 if ($bill_query) {
-    // Create a new text file
-    $file = fopen("$billDirectory/bill.txt", "w");
+    // Get the current date and time
+    $currentDateTime = date('Y-m-d_H-i-s');
+    
+    // Create a new text file with the current date and time in the file name
+    $file = fopen("$billDirectory/bill_$currentDateTime.txt", "w");
 
     // Check if the file was successfully created
     if ($file) {
@@ -45,7 +47,7 @@ if ($bill_query) {
         fclose($file);
 
         // Inform the user that the file has been created
-        echo "Bill details have been saved to bill.txt";
+        echo "Bill details have been saved to bill_$currentDateTime.txt";
     } else {
         // Handle the case where the file creation failed
         echo "Error: Unable to create file";

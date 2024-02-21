@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 06:53 PM
+-- Generation Time: Feb 21, 2024 at 05:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,6 +35,13 @@ CREATE TABLE `bill` (
   `total` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`id`, `name`, `quantity`, `price`, `total`) VALUES
+(86, 'Lal Qilla Basmati Rice', 1, 1600, 1600);
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +56,13 @@ CREATE TABLE `cart` (
   `quantity` int(10) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `name`, `price`, `quantity`, `image`) VALUES
+(65, 3, 'Lal Qilla Basmati Rice', 1600, 1, 'basmati rice.jpeg');
 
 -- --------------------------------------------------------
 
@@ -70,6 +84,15 @@ CREATE TABLE `orders` (
   `date` date NOT NULL,
   `number` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `name`, `email`, `address`, `total_products`, `total_price`, `method`, `order_status`, `payment_status`, `date`, `number`) VALUES
+(26, 5, 'Pratik Adhikari', 'pratikadhikari977@gmail.com', 'Kathmandu, Lalitpur', 'Hills Premium Dry Cat Food (1) Purina Friskies Dry Cat Food (1) RS Aquarium Heater (1) ', 3850, 'e-sewa', 'delivered', 'paid', '0000-00-00', '9822834472'),
+(27, 3, 'Pratik Adhikari', 'pratikadhikari977@gmail.com', 'Kathmandu, Lalitpur', 'Wai-Wai Noodles (1) ', 25, 'e-sewa', '', '', '0000-00-00', '9822834472'),
+(28, 3, 'Pratik Adhikari', 'pratikadhikari977@gmail.com', 'Kathmandu, Lalitpur', 'Samsung S23 Ultra (1) ', 179500, 'e-sewa', '', '', '0000-00-00', '9822834472');
 
 -- --------------------------------------------------------
 
@@ -97,10 +120,12 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `type`) VALUES
 (10, 'Nutrela Soybean', 650, 'nutrela soyabin.jpeg', 'Food'),
 (11, 'Baltra Stand Fan', 1800, 'Stand Fan.jpeg', 'Electronics'),
 (12, 'Britiania Good Day', 40, 'biscuit.jpeg', 'Food'),
-(13, 'RS Aquarium Heater', 500, 'rs_heater.jpg', 'Aquarium'),
-(14, 'SOBO Aquarium Filter', 760, 'sobo_filter.jpg', 'Aquarium'),
+(13, 'RS Aquarium Heater', 500, 'rs_heater.jpg', 'Pets'),
+(14, 'SOBO Aquarium Filter', 760, 'sobo_filter.jpg', 'Pets'),
 (15, 'Apache RTR 200', 400000, 'Apache_RTR.jpg', 'Motorcycle'),
-(16, 'Baltra Table Fan', 2600, 'Table Fan.jpeg', 'Electronics');
+(16, 'Baltra Table Fan', 2600, 'Table Fan.jpeg', 'Electronics'),
+(17, 'Hills Premium Dry Cat Food', 2500, 'hills_cat_food.png', 'Pets'),
+(18, 'Purina Friskies Dry Cat Food', 850, 'Purina_Friskies_Cat_Food.png', 'pets');
 
 -- --------------------------------------------------------
 
@@ -169,25 +194,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
